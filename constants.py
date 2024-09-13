@@ -1,0 +1,4 @@
+SCREEN_WIDTH = 500
+SCREEN_HEIGHT = 500
+FPS = 60
+TOP_TITLE = "Tower Defence PLus"
