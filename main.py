@@ -1,6 +1,7 @@
 import pygame as pg
 import constants as c 
 from enemy import Enemy
+from world import World
 
 #initilize
 pg.init()
@@ -13,8 +14,16 @@ screen = pg.display.set_mode((c.SCREEN_WIDTH,c.SCREEN_HEIGHT))
 pg.display.set_caption(c.TOP_TITLE)
 
 #Load images
+#map
+##Todo  add map image and add file here
+#map_image = pg.image.load('levels/level_1.png').convert_alpha()
+#enemy
 enemy_image = pg.image.load('assets/images/enemies/enemy1.jpeg').convert_alpha()
 enemy_image = pg.transform.scale(enemy_image,(10,10))
+
+#create world
+world = World(map_image)
+
 
 #create groups
 enemy_group = pg.sprite.Group()
@@ -37,6 +46,9 @@ while run:
     clock.tick(c.FPS)
     
     screen.fill("grey50")
+
+    #draw level
+    world.draw(screen)
 
     #draw enemy path
     pg.draw.lines(screen,"grey0",False, waypoints)
